@@ -26,6 +26,9 @@ export class Contact {
   });
 
   constructor() {
+    // La validité du champ Email dépend de la checkbox Hide : quand elle est
+    // cochée, Email ne doit plus être requis et sa valeur doit être vidée
+    // (comme demandé), au lieu de garder une valeur cachée obsolète.
     this.form.controls.hideEmail.valueChanges.subscribe((hidden) => {
       const email = this.form.controls.email;
       if (hidden) {
@@ -34,11 +37,14 @@ export class Contact {
       } else {
         email.setValidators([Validators.required, Validators.pattern(/.*@.*/)]);
       }
+      // Les modifications apportées aux validateurs ne prennent effet qu'une fois cette fonction appelée.
       email.updateValueAndValidity();
     });
   }
 
   public onSubmit(): void {
+    // Garde-fou : le bouton est déjà [disabled] quand le formulaire est
+    // invalide, donc ceci ne sert qu'à bloquer une validation via la touche Entrée.
     if (this.form.invalid) {
       return;
     }

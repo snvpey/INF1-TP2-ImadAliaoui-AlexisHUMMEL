@@ -1,0 +1,6 @@
+// Donne un peu de profondeur aux pastilles inactives pour qu'elles paraissent
+// cliquables même avant que le fond `.active` de Bootstrap n'apparaisse.
+.nav-pills .nav-link {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}

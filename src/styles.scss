@@ -1,28 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+// Variables de marque injectées dans le Sass de Bootstrap *avant* de
+// l'importer, pour que chaque composant (boutons, nav-pills, liens,
+// focus...) les récupère automatiquement. Les surcharger après coup sur les
+// variables CSS compilées ne fonctionne pas ici : des composants comme
+// .btn-primary et .nav-pills intègrent le bleu par défaut en valeur
+// hexadécimale littérale plutôt qu'en référençant --bs-primary.
+$primary: #4f46e5;
+$body-bg: #f4f5fb;
+$font-family-base: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$border-radius: 0.5rem;
+$border-radius-lg: 0.75rem;
 
-:root {
-  --color-primary: #4f46e5;
-  --color-primary-dark: #3730a3;
-  --color-bg: #f4f5fb;
-  --color-surface: #ffffff;
-  --color-text: #1f2333;
-  --color-text-muted: #6b7280;
-  --header-height: 64px;
-  --footer-height: 64px;
+@import 'bootstrap/scss/bootstrap';
+
+// Petites finitions pour lesquelles Bootstrap n'a pas de classe utilitaire.
+a,
+.btn,
+.nav-link {
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
-* {
-  box-sizing: border-box;
-}
+.img-fluid {
+  transition: transform 0.2s ease;
 
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+  &:hover {
+    transform: scale(1.03);
+  }
 }

@@ -26,6 +26,8 @@
       <label for="hideEmail" class="form-check-label">Hide</label>
     </div>
 
+    <!-- Masqué quand la checkbox Hide est cochée : le composant vide alors
+         la valeur du champ et retire ses validateurs. -->
     @if (!form.controls.hideEmail.value) {
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>

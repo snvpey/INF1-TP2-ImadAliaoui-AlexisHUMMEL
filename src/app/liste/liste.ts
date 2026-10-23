@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 interface Movie {
   id: number;
   name: string;
+  // Chemin de l'affiche dans public/, résolu relativement à index.html.
   link: string;
 }
 
@@ -22,6 +23,8 @@ export class Liste {
     { id: 5, name: 'The Matrix', link: 'posters/matrix.png' },
   ];
 
+  // null jusqu'au clic sur un film ; le template n'affiche la section
+  // détail qu'une fois cette valeur renseignée.
   public selectedMovie: Movie | null = null;
 
   public showMovie(movie: Movie): void {

@@ -1,0 +1,12 @@
+// Centre la carte "dernière soumission" (ou l'état 404) dans les deux sens
+// sur la page, comme le font déjà Liste/Accueil via une classe sur le host.
+// Fait ici en CSS plutôt que via une classe host en TS, pour que toutes les
+// règles de mise en page de cette page restent au même endroit.
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
