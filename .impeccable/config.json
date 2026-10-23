@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/app/liste/liste.html"
+        ],
+        "createdAt": "2026-09-29T13:33:59.641Z",
+        "reason": "img src is a dynamic [src] binding to real downloaded posters in public/posters/, not empty/placeholder"
+      }
+    ]
+  }
+}

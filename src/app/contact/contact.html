@@ -1,0 +1,43 @@
+<div class="container py-5">
+  <form
+    class="card p-4 shadow-sm col-12 col-sm-10 col-md-6 col-lg-5 mx-auto"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
+    <h1 class="h4 mb-4 text-center">Contact</h1>
+
+    <div class="mb-3">
+      <label for="prenom" class="form-label">Prénom</label>
+      <input id="prenom" type="text" class="form-control" formControlName="prenom" />
+    </div>
+
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input id="nom" type="text" class="form-control" formControlName="nom" />
+    </div>
+
+    <div class="mb-3">
+      <label for="age" class="form-label">Âge</label>
+      <input id="age" type="number" class="form-control" formControlName="age" />
+    </div>
+
+    <div class="form-check mb-3">
+      <input id="hideEmail" type="checkbox" class="form-check-input" formControlName="hideEmail" />
+      <label for="hideEmail" class="form-check-label">Hide</label>
+    </div>
+
+    @if (!form.controls.hideEmail.value) {
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" type="text" class="form-control" formControlName="email" />
+      </div>
+    }
+
+    <div class="mb-4">
+      <label for="commentaire" class="form-label">Commentaire</label>
+      <textarea id="commentaire" class="form-control" rows="4" formControlName="commentaire"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">Envoyer</button>
+  </form>
+</div>

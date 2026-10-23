@@ -1,0 +1,28 @@
+@if (lastSubmission(); as submission) {
+  <div class="card shadow-sm p-4 col-12 col-sm-10 col-md-6 col-lg-5 mx-auto">
+    <h1 class="h4 mb-4 text-center">Dernier formulaire envoyé</h1>
+    <dl class="row mb-0">
+      <dt class="col-5">Prénom</dt>
+      <dd class="col-7">{{ submission.prenom }}</dd>
+
+      <dt class="col-5">Nom</dt>
+      <dd class="col-7">{{ submission.nom }}</dd>
+
+      <dt class="col-5">Âge</dt>
+      <dd class="col-7">{{ submission.age || '—' }}</dd>
+
+      @if (!submission.hideEmail) {
+        <dt class="col-5">Email</dt>
+        <dd class="col-7">{{ submission.email }}</dd>
+      }
+
+      <dt class="col-5">Commentaire</dt>
+      <dd class="col-7">{{ submission.commentaire }}</dd>
+    </dl>
+  </div>
+} @else {
+  <div class="text-center">
+    <img src="404.gif" alt="404 not found" class="img-fluid rounded-4 shadow mb-3" style="max-width: 320px" />
+    <h1 class="h3">404 - Aucun formulaire envoyé</h1>
+  </div>
+}

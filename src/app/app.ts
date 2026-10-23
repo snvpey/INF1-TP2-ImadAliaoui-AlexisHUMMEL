@@ -1,11 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Header } from './header/header';
+import { Footer } from './footer/footer';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Header, Footer],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
+  host: { class: 'd-flex flex-column min-vh-100' },
 })
 export class App {
   protected readonly title = signal('exo2-ImadAliaoui-AlexisHummel');

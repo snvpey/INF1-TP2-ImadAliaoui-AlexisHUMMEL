@@ -1,0 +1,21 @@
+<ul class="nav nav-pills justify-content-center gap-2 mb-4">
+  @for (movie of movies; track movie.id) {
+    <li class="nav-item">
+      <button
+        type="button"
+        class="nav-link"
+        [class.active]="selectedMovie?.id === movie.id"
+        (click)="showMovie(movie)"
+      >
+        {{ movie.name }}
+      </button>
+    </li>
+  }
+</ul>
+
+@if (selectedMovie) {
+  <section class="text-center">
+    <h2 class="h4 mb-3">{{ selectedMovie.name }}</h2>
+    <img [src]="selectedMovie.link" [alt]="selectedMovie.name" class="img-fluid rounded shadow" style="max-width: 260px" />
+  </section>
+}
